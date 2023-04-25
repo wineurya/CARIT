@@ -31,25 +31,36 @@ function displayCourseInputs() {
   }
 }
 
+
   // calculate average grade and display result
   function evaluateGrades() {
     const courseSelects = document.querySelectorAll("#courses-container select");
+    let displayedCourses = 0;
     let totalPoints = 0;
+  
     for (let i = 0; i < courseSelects.length; i++) {
-      const letterGrade = courseSelects[i].value;
-      const pointGrade = pointGrades[letterGrade];
-      totalPoints += pointGrade;
+      if (courseSelects[i].parentElement.style.display !== "none") {
+        displayedCourses++;
+        const letterGrade = courseSelects[i].value;
+        const pointGrade = pointGrades[letterGrade];
+        totalPoints += pointGrade;
+      }
     }
-    const averageGrade = totalPoints / courseSelects.length;
-    let message = `Your average grade is ${averageGrade.toFixed(2)}.`;
-    if (averageGrade >= 3.0) {
-      message += " Congratulations, you meet the average grade requirement.";
+  
+    if (displayedCourses > 0) {
+      const averageGrade = totalPoints / displayedCourses;
+      let message = `Your average grade is ${averageGrade.toFixed(2)}.`;
+      if (averageGrade >= 3.0) {
+        message += " Congratulations, you meet the average grade requirement. <br> <a href='apply.html'> Click here to start your application </a>";
+      } else {
+        message += " Thank you for your interest.";
+      }
+      resultContainer.innerHTML = `<p class="result-message">${message}</p>`;
     } else {
-      message += " Thank you for your interest.";
+      resultContainer.innerHTML = "";
     }
-    resultContainer.innerHTML = message;
   }
-
+  
   // add event listeners
   studentStatusSelect.addEventListener("change", displayCourseInputs);
   evaluateBtn.addEventListener("click", evaluateGrades);
