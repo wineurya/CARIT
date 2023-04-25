@@ -13,20 +13,23 @@ window.onload = function() {
     F: 0.0,
   };
 
-  // toggle course display based on student status
-  function displayCourseInputs() {
-    const studentStatus = studentStatusSelect.value;
-    const undergraduateCourses = document.querySelectorAll(".undergraduate-course");
-    const graduateCourses = document.querySelectorAll(".graduate-course");
+ // toggle course display based on student status
+function displayCourseInputs() {
+  const studentStatus = studentStatusSelect.value;
+  const undergraduateCourses = document.querySelectorAll(".undergraduate-course");
+  const graduateCourses = document.querySelectorAll(".graduate-course");
 
-    if (studentStatus === "undergraduate") {
-      undergraduateCourses.forEach(course => course.style.display = "block");
-      graduateCourses.forEach(course => course.style.display = "none");
-    } else {
-      undergraduateCourses.forEach(course => course.style.display = "none");
-      graduateCourses.forEach(course => course.style.display = "block");
-    }
+  if (studentStatus === "undergraduate") {
+    undergraduateCourses.forEach(course => course.style.display = "block");
+    graduateCourses.forEach(course => course.style.display = "none");
+  } else if (studentStatus === "graduate") {
+    undergraduateCourses.forEach(course => course.style.display = "none");
+    graduateCourses.forEach(course => course.style.display = "block");
+  } else {
+    undergraduateCourses.forEach(course => course.style.display = "none");
+    graduateCourses.forEach(course => course.style.display = "none");
   }
+}
 
   // calculate average grade and display result
   function evaluateGrades() {
