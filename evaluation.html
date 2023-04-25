@@ -22,23 +22,51 @@
 			</div>
 		</div>
 	</header>
-	<main>
-		<div>
-			<form>
-				<div class="form-group">
-					<label for="student-status">Student Status</label>
-					<select id="student-status" name="student-status" class="form-control">
-						<option value="undergraduate">Undergraduate</option>
-						<option value="graduate">Graduate</option>
-					</select>
-				</div>
-				<div id="courses-container"></div>
-				<button id="evaluate-btn" type="button" class="btn btn-primary">Evaluate</button>
-			</form>
-			<div id="result-container"></div>
+	<!-- ... -->
+<main>
+	<div>
+	  <form>
+		<div class="form-group">
+		  <label for="student-status">Student Status</label>
+		  <select id="student-status" name="student-status" class="form-control">
+			<option>Please select a status</option>
+			<option value="undergraduate">Undergraduate</option>
+			<option value="graduate">Graduate</option>
+		  </select>
 		</div>
-	</main>
-	<footer> 
+		<div id="courses-container">
+		  <!-- Undergraduate Courses -->
+		  <div class="form-group undergraduate-course" style="display:none;">
+			<label for="course1">Course 1</label>
+			<select id="course1" name="course1" class="form-control">
+			  <option value="A">A</option>
+			  <option value="B">B</option>
+			  <option value="C">C</option>
+			  <option value="D">D</option>
+			  <option value="F">F</option>
+			</select>
+		  </div>
+		  <!-- ... Add other undergraduate courses here ... -->
+		  
+		  <!-- Graduate Courses -->
+		  <div class="form-group graduate-course" style="display:none;">
+			<label for="course4">Course 4</label>
+			<select id="course4" name="course4" class="form-control">
+			  <option value="A">A</option>
+			  <option value="B">B</option>
+			  <option value="C">C</option>
+			  <option value="D">D</option>
+			  <option value="F">F</option>
+			</select>
+		  </div>
+		  <!-- ... Add other graduate courses here ... -->
+		</div>
+		<button id="evaluate-btn" type="button" class="btn btn-primary">Evaluate</button>
+	  </form>
+	  <div id="result-container"></div>
+	</div>
+  </main>
+  	<footer> 
 		Wineury Almonte <br>
 		Disclaimer: This is a class project. <br>
 		<a href="http://it5443.azurewebsites.net">Class Website</a>
